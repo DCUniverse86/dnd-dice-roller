@@ -1,51 +1,97 @@
 # D&D Dice Roller
 
-A small Java console application I originally wrote to roll common dice used in Dungeons & Dragons.
+A simple Java console application for rolling common Dungeons & Dragons dice.
 
-The program supports:
+## About This Project
 
-- d4
-- d6
-- d8
-- d10
-- d12
-- d20
-- d100
-- Multiple dice rolls
-- Positive or negative modifiers
-- Critical success and critical failure messages for natural 20s and natural 1s
+This is an older Java project I created as part of my programming journey. I've preserved the original source code in the `original` folder and included a cleaned, working version in `src`.
 
-## About this repository
+This repository serves as an archive of my original work and something I can continue improving as I develop my programming skills.
 
-This is an older project that I revisited for GitHub. The `original` folder contains the original source files as I wrote them, while `src` contains a cleaned-up version that keeps the same basic behavior while fixing issues that prevented the original from running reliably.
+## Features
 
-## Running the program
+- Supports common D&D dice:
+  - d4
+  - d6
+  - d8
+  - d10
+  - d12
+  - d20
+  - d100
+- Roll multiple dice at once
+- Add positive or negative modifiers to a roll
+- Calculates the total of all rolls plus the modifier
+- Detects natural 20s as critical successes
+- Detects natural 1s as critical failures
 
-From the repository folder, compile the Java files:
+## Project Structure
 
-```bash
-javac -d out src/MultifacedDie.java src/DnDDiceRoller.java
+```text
+dnd-dice-roller/
+├── original/
+│   ├── dice-roller-original.txt
+│   └── multifaced-die-original.txt
+├── src/
+│   ├── DnDDiceRoller.java
+│   └── MultifacedDie.java
+├── .gitignore
+└── README.md
 ```
 
-Then run:
+### `original`
 
-```bash
-java -cp out DnDDiceRoller
-```
+Contains the original source code from the project. These files have been preserved so the original version of the program remains available.
 
-## Example
+### `src`
+
+Contains the cleaned and updated Java source code.
+
+## How It Works
+
+The program asks the user which type of die they want to roll, how many dice they want to roll, and what modifier should be applied.
+
+For example:
 
 ```text
 What die do you need? (d4, d6, d8, d10, d12, d20, d100)
 d20
+
 What are your modifiers?
 5
+
 How many dice do you want to roll?
 2
 ```
 
-The application rolls the requested dice, displays each result, and prints the total after applying the modifier.
+The program rolls the requested dice, displays the individual results, and calculates the final total with the modifier applied.
 
-## Project history
+## Running the Program
 
-This repository intentionally keeps copies of the original code so the project's earlier implementation is preserved alongside the revised version.
+Make sure Java is installed on your computer.
+
+Compile the source files:
+
+```bash
+javac src/DnDDiceRoller.java src/MultifacedDie.java
+```
+
+Run the program:
+
+```bash
+java -cp src DnDDiceRoller
+```
+
+## Future Improvements
+
+This is a project I can continue expanding as I learn more. Possible improvements include:
+
+- Better input validation
+- Advantage and disadvantage rolls
+- Custom dice expressions such as `2d6+4`
+- A graphical user interface
+- Roll history
+- Additional D&D-specific rolling options
+
+## Why Preserve the Original Code?
+
+I wanted to keep the original version rather than simply replace it. The `original` folder provides a snapshot of the project as I originally wrote it, while the `src` folder gives me a place to improve and expand the program over time.
