@@ -1,0 +1,118 @@
+import java.util.Scanner;
+
+// Dice Roller for Dungeons and Dragons
+
+public class DnDDiceRoller {
+    public static void main(String[] args){
+//Creates the different dice needed to roll for the game
+        MultifacedDie d4 = new MultifacedDie(4);
+        MultifacedDie d6 = new MultifacedDie(6);
+        MultifacedDie d8 = new MultifacedDie(8);
+        MultifacedDie d10 = new MultifacedDie(10);
+        MultifacedDie d12 = new MultifacedDie(12);
+        MultifacedDie d20 = new MultifacedDie(20);
+        MultifacedDie d100 = new MultifacedDie(100);
+
+        String dice;
+        int modification;
+        int numberofRolls;
+        int totalDiceRoll;
+        int allDice = 0;
+        int total;
+
+        Scanner scan = new Scanner(System.in);
+
+//Asks user to pick the die they need
+        System.out.println("What die do you need? (d4, d6, d8, d10, d12, d20, d100)");
+        dice = scan.nextLine();
+        String dicevalue = dice.substring(1, 4);
+        int dice2 = Integer.parseInt(dicevalue);
+//Ask user for any modifiers they need to add or subtract from roll
+        System.out.println("What are your modifiers?");
+        modification = scan.nextInt();
+//Asks user how many dice they want to roll
+        System.out.println("How many dice do you want to roll?");
+        numberofRolls = scan.nextInt();
+        {
+// rolls amount of sided dice and prints out results adding modifiers depending on users response
+            switch (dice2) {
+                case 4 -> {
+                    for (int i = 0; i < numberofRolls; i++)
+                    {
+                        totalDiceRoll = d4.roll();
+                        allDice += totalDiceRoll;
+                        System.out.println("You rolled a d" + d6.getSides() + " and got a " + d4.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+                case 6 -> {
+                    for (int i = 0; i < numberofRolls; i++)
+                    {
+                        totalDiceRoll = d6.roll();
+                        allDice += totalDiceRoll;
+                        System.out.println("You rolled a d" + d6.getSides() + " and got a " + d6.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+
+                case 8 -> {
+                    for (int i = 0; i < numberofRolls; i++)
+                    {
+                        totalDiceRoll = d8.roll();
+                        allDice += totalDiceRoll;
+                        System.out.println("You rolled a d" + d8.getSides() + " and got a " + d8.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+                case 10 -> {
+                    for (int i = 0; i < numberofRolls; i++)
+                    {
+                        totalDiceRoll = d10.roll();
+                        allDice += totalDiceRoll;
+                        System.out.println("You rolled a d" + d10.getSides() + " and got a " + d10.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+                case 12 -> {
+                    for (int i = 0; i < numberofRolls; i++)
+                    {
+                        totalDiceRoll = d12.roll();
+                        allDice += totalDiceRoll;
+                        System.out.println("You rolled a d" + d12.getSides() + " and got a " + d12.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+                case 20 -> {
+                    for (int i = 0; i < numberofRolls; i++) {
+                        totalDiceRoll = d20.roll();
+                        allDice += totalDiceRoll;
+                        if (d20.getValue == 20) {
+                            System.out.println("!!!!!!!!!!Critical Success!!!!!!!!!!");
+                        }
+                        if (d20.getValue == 1) {
+                            System.out.println("!!!!!!!!!!Critical Failure!!!!!!!!!!");
+                        }
+                        System.out.println("You rolled a d" + d20.getSides() + " and got a " + d20.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+                case 100 -> {
+                    for (int i = 0; i < numberofRolls; i++) {
+                        totalDiceRoll = d100.roll();
+                        allDice += totalDiceRoll;
+                        System.out.println("You rolled a d" + d100.getSides() + " and got a " + d100.getValue);
+                    }
+                    total = allDice + modification;
+                    System.out.println("Your roll plus modifiers is " + total);
+                }
+            }
+        }
+    }
+}
+

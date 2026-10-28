@@ -1,0 +1,22 @@
+import java.util.Random;
+
+class MultifacedDie{
+    private final int sides;
+    private final Random random;
+    int getValue;
+//Constructor
+    public MultifacedDie(int sides){
+        this.sides = sides;
+        this.random = new Random();
+    }
+//rolls die and returns results
+    public int roll(){
+        getValue = random.nextInt(sides) + 1;
+        return getValue;
+    }
+//value face accessor
+    public int getSides(){
+
+        return sides;
+    }
+}
